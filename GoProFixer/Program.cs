@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using CommandLine;
 
 namespace GoProFixer
 {
@@ -9,10 +10,19 @@ namespace GoProFixer
     {
         static void Main(string[] args)
         {
-            var strings = Directory.GetFiles("c:\\temp\\test\\");
+            ParserResult<Options> parserResult = Parser.Default.ParseArguments<Options>(args);
 
+            if (parserResult.Errors.Any())
+            {
+                throw new InvalidOperationException();
+            }
             
+            var path = parserResult.Value.Path;
+
+            var strings = Directory.GetFiles(path);
+
             var regex = new Regex(@"(?<path>.*)GH(?<index>\d{2})(?<fileNumber>\d{4}).MP4");
+
             foreach (var originalFilename in strings)
             {
                 var matchCollection = regex.Matches(originalFilename);
