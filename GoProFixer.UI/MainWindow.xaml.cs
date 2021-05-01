@@ -69,6 +69,7 @@ namespace GoProFixer.UI
             else
                 _recursiveSearchOption = SearchOption.TopDirectoryOnly;
 
+
             UpdateRenames();
         }
     }
