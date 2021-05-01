@@ -30,5 +30,5 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '.\GoProFixer.UI\bin\Debug\net5.0-windows\' 
+    pathtoPublish: '.\GoProFixer\GoProFixer.UI\bin\Debug\net5.0-windows\' 
     artifactName: 'myFirstArtifacts'
