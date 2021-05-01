@@ -64,7 +64,7 @@ namespace GoProFixer.UI
 
         private void CheckBoxChanged(object sender, RoutedEventArgs e)
         {
-            if ((bool)CheckboxRecursive.IsChecked)
+            if ((bool) CheckboxRecursive.IsChecked)
                 _recursiveSearchOption = SearchOption.AllDirectories;
             else
                 _recursiveSearchOption = SearchOption.TopDirectoryOnly;
