@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoProFixer.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="400">
+        Title="GoPro file rename tool" Height="400" Width="800">
     <StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
             <Button Content="Select path" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Click="Button_Click"/>
-            <Label Name="textHolder" Content="" Margin="10" VerticalAlignment="Center" Width="220"/>
-            <CheckBox Name="CheckboxRecursive" Content="Recursive" VerticalAlignment="Center" />
+            <CheckBox Name="CheckboxRecursive" Content="Recursive" VerticalAlignment="Center" Checked="CheckBoxChanged" Unchecked="CheckBoxChanged" />
+            <Label Name="pathHolder" Content="" Margin="10" VerticalAlignment="Center" Width="627"/>
         </StackPanel>
-        <ScrollViewer Margin="10" Height="110">        
-            <TextBox Name="boxy" HorizontalAlignment="Left" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" />
+
+        <ScrollViewer Margin="10" Height="250">
+            <TextBox Name="boxy" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Stretch" />
         </ScrollViewer>
 
+        <Button Name="renameButton" Content="Rename!" Margin="10"/>
     </StackPanel>
 </Window>

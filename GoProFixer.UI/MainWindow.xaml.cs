@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GoProFixer;
+using Path = System.IO.Path;
 
 namespace GoProFixer.UI
 {
@@ -21,9 +23,15 @@ namespace GoProFixer.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GoProFileRename _program;
+        private string _path;
+        private SearchOption _recursiveSearchOption = SearchOption.TopDirectoryOnly;
+        private IEnumerable<FileRenameInfo> _files;
+
         public MainWindow()
         {
             InitializeComponent();
+            _program = new GoProFileRename();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,14 +42,34 @@ namespace GoProFixer.UI
                 if (result != System.Windows.Forms.DialogResult.OK)
                     return;
 
-                var recursiveSearchOption = SearchOption.TopDirectoryOnly;
-                if ((bool)CheckboxRecursive.IsChecked)
-                    recursiveSearchOption = SearchOption.AllDirectories;
+                _path = dialog.SelectedPath;
+                pathHolder.Content = _path;
 
-                textHolder.Content = dialog.SelectedPath;
-                var files = Directory.EnumerateFiles(dialog.SelectedPath, "*.*", recursiveSearchOption);
-                boxy.Text = files.Select(x => x + "\r\n").Aggregate("", (x, y) => x + y);
+                UpdateRenames();
             }
+        }
+
+        private void UpdateRenames()
+        {
+            if (String.IsNullOrEmpty(_path)) return;
+
+            _files = _program.GetAllFileRenameInfo(_path, _recursiveSearchOption);
+
+            boxy.Text = _files
+                .Select(x => $"Path: {Path.GetDirectoryName(x.OriginalName)} Orig: {Path.GetFileName(x.OriginalName)} - New:{Path.GetFileName(x.NewName)}\r\n")
+                .Aggregate("", (x, y) => x + y);
+
+            renameButton.IsEnabled = _files.Any();
+        }
+
+        private void CheckBoxChanged(object sender, RoutedEventArgs e)
+        {
+            if ((bool)CheckboxRecursive.IsChecked)
+                _recursiveSearchOption = SearchOption.AllDirectories;
+            else
+                _recursiveSearchOption = SearchOption.TopDirectoryOnly;
+
+            UpdateRenames();
         }
     }
 }

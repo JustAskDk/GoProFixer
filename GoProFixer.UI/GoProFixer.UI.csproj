@@ -7,4 +7,8 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GoProFixer\GoProFixer.csproj" />
+  </ItemGroup>
+
 </Project>
