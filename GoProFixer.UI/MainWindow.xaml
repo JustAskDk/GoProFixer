@@ -17,6 +17,6 @@
             <TextBox Name="boxy" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Stretch" />
         </ScrollViewer>
 
-        <Button Name="renameButton" Content="Rename!" Margin="10"/>
+        <Button Name="renameButton" Content="Rename!" Margin="10" Click="renameButton_Click"/>
     </StackPanel>
 </Window>

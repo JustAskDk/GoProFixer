@@ -53,7 +53,7 @@ namespace GoProFixer.UI
         {
             if (String.IsNullOrEmpty(_path)) return;
 
-            _files = _program.GetAllFileRenameInfo(_path, _recursiveSearchOption);
+            _files = _program.GetAllFileRenameInfo(_path, _recursiveSearchOption).ToArray();
 
             boxy.Text = _files
                 .Select(x => $"Path: {Path.GetDirectoryName(x.OriginalName)} Orig: {Path.GetFileName(x.OriginalName)} - New:{Path.GetFileName(x.NewName)}\r\n")
@@ -71,6 +71,21 @@ namespace GoProFixer.UI
 
 
             UpdateRenames();
+        }
+
+        private void renameButton_Click(object sender, RoutedEventArgs e)
+        {
+            string messageBoxText = $"{_files.Count()} files renamed";
+            string caption = "Rename not possible";
+            MessageBoxButton button = MessageBoxButton.OK;
+            MessageBoxImage icon = MessageBoxImage.Information;
+            MessageBoxResult result;
+
+
+            foreach (var fileRenameInfo in _files)
+                fileRenameInfo.PerformRename();
+
+            result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
         }
     }
 }
