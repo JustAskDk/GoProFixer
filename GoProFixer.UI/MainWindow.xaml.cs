@@ -86,6 +86,7 @@ namespace GoProFixer.UI
                 fileRenameInfo.PerformRename();
 
             result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            UpdateRenames();
         }
     }
 }

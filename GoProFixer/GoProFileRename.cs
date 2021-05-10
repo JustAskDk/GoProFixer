@@ -7,8 +7,8 @@ namespace GoProFixer
 {
     public class GoProFileRename
     {
-        private Regex _regex = new Regex(@"(?<path>.*)GH(?<index>\d{2})(?<fileNumber>\d{4}).MP4");
-        private IDictionary<string, bool> _preCalculated = new Dictionary<string, bool>();
+        private Regex _regex = new Regex(@"(?<path>.*)(?<preFix>(G[(L)|(H)]))(?<index>\d{2})(?<fileNumber>\d{4}).(?<fileType>(MP4)|(THM)|(LRV))$");
+        private readonly IDictionary<string, bool> _preCalculated = new Dictionary<string, bool>();
 
         public bool ShouldBeRenamed(string filename)
         {
@@ -26,7 +26,7 @@ namespace GoProFixer
 
             var matchCollection = _regex.Matches(filename);
             var match = matchCollection.Single();
-            var newFilename = string.Format($"{match.Groups["path"]}GH{match.Groups["fileNumber"]}_{match.Groups["index"]}.MP4");
+            var newFilename = string.Format($"{match.Groups["path"]}{match.Groups["preFix"]}{match.Groups["fileNumber"]}_{match.Groups["index"]}.{match.Groups["fileType"]}");
 
             var fileRenameInfo = new FileRenameInfo(filename, newFilename);
 
