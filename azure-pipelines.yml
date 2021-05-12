@@ -26,14 +26,13 @@ steps:
 
 - task: VSTest@2
   inputs:
-    testSelector: 'testAssemblies'
     testAssemblyVer2: |
-      **\bin\$(BuildConfiguration)\**\*test*.dll
-      !**\obj\**
-      !**\xunit.runner.visualstudio.testadapter.dll
-      !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-      !**\Microsoft.TestPlatform.*.dll
-      !**\Microsoft.VisualStudio.TestPlatform.*.dll
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+     **\$(BuildConfiguration)\**\GoProFixer.*Test*.dll
+     !**\$(BuildConfiguration)\**\*Models*.dll
+     !**\*TestAdapter.dll
+     !**\obj\**
+     !**\$(BuildConfiguration)\**\*IntegrationTests*.dll
     codeCoverageEnabled: true
-    otherConsoleOptions: '/InIsolation'
+    testRunTitle: '$(Build.DefinitionName) | $(Build.Reason) |$(Build.SourceVersion)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
