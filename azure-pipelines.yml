@@ -32,6 +32,8 @@ steps:
       !**\obj\**
       !**\xunit.runner.visualstudio.testadapter.dll
       !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+      !**\Microsoft.TestPlatform.*.dll
+      !**\Microsoft.VisualStudio.TestPlatform.*.dll
     searchFolder: '$(System.DefaultWorkingDirectory)'
     codeCoverageEnabled: true
     otherConsoleOptions: '/InIsolation'
