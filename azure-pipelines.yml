@@ -32,7 +32,9 @@ steps:
      !**\*TestAdapter.dll
      !**\obj\**
      !**\$(BuildConfiguration)\**\*IntegrationTests*.dll
+     !**\bin\**\ref\**
     codeCoverageEnabled: true
     testRunTitle: '$(Build.DefinitionName) | $(Build.Reason) |$(Build.SourceVersion)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
