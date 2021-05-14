@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoProFixer\GoProFixer.csproj" />
+    <ProjectReference Include="..\GoProFixer\GoProFixer.Logic.csproj" />
   </ItemGroup>
 
 </Project>

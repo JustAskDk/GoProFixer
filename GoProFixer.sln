@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoProFixer", "GoProFixer\GoProFixer.csproj", "{1A3373F3-C3D6-410D-A2BF-58C23BC23986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoProFixer.Logic", "GoProFixer\GoProFixer.Logic.csproj", "{1A3373F3-C3D6-410D-A2BF-58C23BC23986}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoProFixer.UI", "GoProFixer.UI\GoProFixer.UI.csproj", "{ECA7CB97-5D65-4E3C-9CCD-B01F071C377F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoProFixer", "GoProFixer.UI\GoProFixer.csproj", "{ECA7CB97-5D65-4E3C-9CCD-B01F071C377F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoProFixer.Test", "GoProFixer.Test\GoProFixer.Test.csproj", "{AF3EB4C3-9B47-414F-B630-C13BD26BA8AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoProFixer.Test", "GoProFixer.Test\GoProFixer.Test.csproj", "{AF3EB4C3-9B47-414F-B630-C13BD26BA8AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
