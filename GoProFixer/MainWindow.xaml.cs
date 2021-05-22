@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using Path = System.IO.Path;
 
@@ -44,9 +45,11 @@ namespace GoProFixer
 
             _files = _program.GetAllFileRenameInfo(_path, _recursiveSearchOption).ToArray();
 
-            boxy.Text = _files
-                .Select(x => $"Path: {Path.GetDirectoryName(x.OriginalName)} Orig: {Path.GetFileName(x.OriginalName)} - New:{Path.GetFileName(x.NewName)}\r\n")
-                .Aggregate("", (x, y) => x + y);
+            renamesGrid.ItemsSource = _files.Select(f => new ViewFile(f)).ToArray();
+
+            //boxy.Text = _files
+            //    .Select(x => $"Path: {Path.GetDirectoryName(x.OriginalName)} Orig: {Path.GetFileName(x.OriginalName)} - New:{Path.GetFileName(x.NewName)}\r\n")
+            //    .Aggregate("", (x, y) => x + y);
 
             renameButton.IsEnabled = _files.Any();
         }
@@ -77,5 +80,20 @@ namespace GoProFixer
             result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
             UpdateRenames();
         }
+    }
+
+    public class ViewFile
+    {
+
+        public ViewFile(FileRenameInfo origin)
+        {
+            OriginalFileName = Path.GetFileName(origin.OriginalName);
+            NewFileName = Path.GetFileName(origin.NewName);
+            FullPath = Path.GetFullPath(origin.OriginalName);
+        }
+
+        public string OriginalFileName { get; set; }
+        public string NewFileName { get; set; }
+        public string FullPath { get; set; }
     }
 }

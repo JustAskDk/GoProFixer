@@ -13,9 +13,13 @@
             <Label Name="pathHolder" Content="" Margin="10" VerticalAlignment="Center" Width="627"/>
         </StackPanel>
 
-        <ScrollViewer Margin="10" Height="250">
-            <TextBox Name="boxy" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Stretch" />
-        </ScrollViewer>
+        <!--<ScrollViewer Margin="10" Height="250">-->
+            <Grid Margin="10" Height="250">
+                <DataGrid Name="renamesGrid" ScrollViewer.CanContentScroll="True" 
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"></DataGrid>
+            </Grid>
+        <!--</ScrollViewer>-->
 
         <Button Name="renameButton" Content="Rename!" Margin="10" Click="renameButton_Click"/>
     </StackPanel>
