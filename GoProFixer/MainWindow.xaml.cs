@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using GoProFixer.Logic;
 using Path = System.IO.Path;
 
 namespace GoProFixer
