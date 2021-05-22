@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GoProFixer\GoProFixer.Logic.csproj" />
+    <ProjectReference Include="..\GoProFixer.Logic\GoProFixer.Logic.csproj" />
   </ItemGroup>
 
 </Project>
