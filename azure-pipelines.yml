@@ -21,20 +21,12 @@ stages:
     pool:
       vmImage: 'windows-latest'
     jobs:
-      - job: Restore
-        displayName: 'Restore'
-        dependsOn: [  ]
-        steps:
-          - task: CmdLine@2
-            inputs:
-              script: './build.cmd Restore --skip'
       - job: Compile
         displayName: 'Compile'
-        dependsOn: [ Restore ]
         steps:
           - task: CmdLine@2
             inputs:
-              script: './build.cmd Compile --skip'
+              script: './build.cmd Compile'
           - task: PublishBuildArtifacts@1
             inputs:
               artifactName: net5.0
