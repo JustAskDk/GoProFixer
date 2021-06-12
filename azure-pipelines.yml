@@ -29,5 +29,5 @@ stages:
               script: './build.cmd Compile'
           - task: PublishBuildArtifacts@1
             inputs:
-              artifactName: net5.0
-              pathtoPublish: 'GoProFixer.Logic/bin/Debug/net5.0'
+              artifactName: TestArtifact
+              pathtoPublish: 'GoProFixer\artifacts'
