@@ -26,7 +26,7 @@ stages:
         steps:
           - task: CmdLine@2
             inputs:
-              script: './build.cmd Compile'
+              script: './build.cmd Compile --no-logo'
           - task: PublishBuildArtifacts@1
             inputs:
               artifactName: TestArtifact

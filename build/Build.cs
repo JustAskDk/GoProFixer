@@ -67,7 +67,7 @@ class Build : NukeBuild
             var test = System.IO.Directory.GetFiles(files);
             Console.WriteLine("Files: " + string.Join(", ", test));
 
-            Console.WriteLine("Compressing to: " + files);
+            Console.WriteLine("Compressing to: " + ArtifactsDirectory);
             CompressZip(files, ArtifactsDirectory / "TestArchive.zip");
         });
 
