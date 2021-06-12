@@ -11,14 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoProFixer.Logic", "GoProFi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{77EEA6D3-738A-4838-A4DD-495164D6A703}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F910C218-BF97-49A8-96D4-447B167CC6B6}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{77EEA6D3-738A-4838-A4DD-495164D6A703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77EEA6D3-738A-4838-A4DD-495164D6A703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF3EB4C3-9B47-414F-B630-C13BD26BA8AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF3EB4C3-9B47-414F-B630-C13BD26BA8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF3EB4C3-9B47-414F-B630-C13BD26BA8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,6 +34,8 @@ Global
 		{6C588220-18A5-4769-BAA9-2578EA2FCF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C588220-18A5-4769-BAA9-2578EA2FCF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C588220-18A5-4769-BAA9-2578EA2FCF28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EEA6D3-738A-4838-A4DD-495164D6A703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EEA6D3-738A-4838-A4DD-495164D6A703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

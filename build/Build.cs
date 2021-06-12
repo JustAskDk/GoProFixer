@@ -13,9 +13,12 @@ using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
+using Nuke.Common.CI.AzurePipelines;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
+[AzurePipelines(
+    AzurePipelinesImage.WindowsLatest, InvokedTargets = new[] { "Compile" })]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
