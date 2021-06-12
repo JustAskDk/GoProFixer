@@ -13,12 +13,12 @@ using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
+using static Nuke.Common.IO.CompressionTasks;
 using Nuke.Common.CI.AzurePipelines;
 
 [CheckBuildProjectConfigurations]
 [ShutdownDotNetAfterServerBuild]
-[AzurePipelines(
-    AzurePipelinesImage.WindowsLatest, InvokedTargets = new[] { "Compile" })]
+[AzurePipelines(AzurePipelinesImage.WindowsLatest, AutoGenerate = false, InvokedTargets = new[] { "Compile" })]
 class Build : NukeBuild
 {
     /// Support plugins are available for:
@@ -59,10 +59,16 @@ class Build : NukeBuild
         .Produces(RootDirectory / "GoProFixer.Logic" / "bin" / "Debug" / "net5.0" / "*.exe")
         .Executes(() =>
         {
-            DotNetBuild(s => s
-                .SetProjectFile(Solution)
-                .SetConfiguration(Configuration)
-                .EnableNoRestore());
+        DotNetBuild(s => s
+            .SetProjectFile(Solution)
+            .SetConfiguration(Configuration)
+            .EnableNoRestore());
+            var files = RootDirectory / "GoProFixer.Logic";
+            var test = System.IO.Directory.GetFiles(files);
+            Console.WriteLine("Files: " + string.Join(", ", test));
+
+            Console.WriteLine("Compressing to: " + files);
+            CompressZip(files, ArtifactsDirectory / "TestArchive.zip");
         });
 
 }
