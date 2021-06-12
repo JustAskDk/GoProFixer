@@ -48,7 +48,7 @@ class Build : NukeBuild
         .Executes(() =>
         {
             Console.WriteLine("Working dir:" + System.IO.Directory.GetCurrentDirectory());
-            System.IO.Directory.CreateDirectory(@".\.nuget\packages");
+            System.IO.Directory.CreateDirectory(@".\~\.nuget\packages");
 
             DotNetRestore(s => s
                 .SetProjectFile(Solution));
