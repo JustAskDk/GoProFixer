@@ -27,10 +27,9 @@ stages:
         displayName: 'Restore'
         dependsOn: [  ]
         steps:
-        - task: PowerShell@2
+          - task: CmdLine@2
             inputs:
-            filePath: 'mkdir'
-            arguments: '.nuget\packages'
+              script: 'mkdir .nuget\packages'
           - task: Cache@2
             inputs:
               key: $(Agent.OS) | **/global.json, **/*.csproj
