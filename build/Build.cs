@@ -45,6 +45,7 @@ class Build : NukeBuild
         });
 
     Target Restore => _ => _
+        .DependsOn(Clean)
         .Executes(() =>
         {
             Console.WriteLine("Working dir:" + System.IO.Directory.GetCurrentDirectory());
