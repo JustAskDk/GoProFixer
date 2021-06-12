@@ -56,6 +56,9 @@ class Build : NukeBuild
         .Produces(RootDirectory / "GoProFixer.Logic" / "bin" / "Debug" / "net5.0" / "*.exe")
         .Executes(() =>
         {
+            Console.WriteLine("Working dir:" + System.IO.Directory.GetCurrentDirectory());
+            System.IO.Directory.CreateDirectory(@".\.nuget\packages");
+
             DotNetBuild(s => s
                 .SetProjectFile(Solution)
                 .SetConfiguration(Configuration)
