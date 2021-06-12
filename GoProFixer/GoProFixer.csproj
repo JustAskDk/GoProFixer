@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NuGet.CommandLine" Version="5.9.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GoProFixer.Logic\GoProFixer.Logic.csproj" />
   </ItemGroup>
 
