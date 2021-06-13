@@ -30,4 +30,4 @@ stages:
           - task: PublishBuildArtifacts@1
             inputs:
               artifactName: TestArtifact
-              pathtoPublish: '~\GoProFixer\artifacts'
+              pathtoPublish: '~\artifacts'
