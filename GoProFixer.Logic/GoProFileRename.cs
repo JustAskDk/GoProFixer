@@ -8,7 +8,7 @@ namespace GoProFixer.Logic
 {
     public class GoProFileRename
     {
-        private readonly Regex _regex1 = new Regex(@"(?<path>.*)(?<preFix>(G[(L)|(H)|(P)]))(?<index>\d{2})(?<fileNumber>\d{4}).(?<fileType>(MP4)|(THM)|(LRV))$");
+        private readonly Regex _regex1 = new Regex(@"(?<path>.*)(?<preFix>(G[(L)|(H)|(X)|(P)]))(?<index>\d{2})(?<fileNumber>\d{4}).(?<fileType>(MP4)|(THM)|(LRV))$");
         private readonly Regex _regex2 = new Regex(@"(?<path>.*)(?<preFix>GOPR)(?<fileNumber>\d{4}).(?<fileType>(MP4)|(THM)|(LRV))$");
         private readonly IDictionary<string, bool> _preCalculated = new Dictionary<string, bool>();
 
